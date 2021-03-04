@@ -4,6 +4,22 @@ title : <%= @post.title %>
 <hr>
 content : <%= @post.content %>
 <hr>
-<a href="/posts/edit/<%= post.id %>"> 수 정 </a>
-<a href="/posts/destroy/<%= post.id %>"> 삭 제 </a>
+<a href="/posts/edit/<%= @post.id %>"> 수 정 </a>
+<a href="/posts/destroy/<%= @post.id %>"> 삭 제 </a>
 <a href="/posts/index">홈으로가기</a>
+
+<form action="<%= posts_comments_create_path(@post) %>" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	작성자 : <input type="text" name="user_name">
+	댓글 : <input type="text" name="body">
+	<button type="submit">제출</button>
+</form>
+<hr>
+
+댓글 보기
+<hr>
+<% Comment.where(post_id: @post.id).each do |comment| %>
+	작성자 : <%= comment.user_name %>
+	댓글 : <%= comment.body %>
+	<hr>
+<% end %>
