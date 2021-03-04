@@ -1,0 +1,6 @@
+<form action="/posts/create" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="text" name="title">
+	<input name="content">
+	<button type="submit">제출</button>
+</form>
