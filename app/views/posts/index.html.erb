@@ -3,8 +3,6 @@
 	title : <%= post.title %>
 	content : <%= post.content %>
 	<a href="/posts/show/<%= post.id %>"> 이 동 </a>
-	<a href="/posts/edit/<%= post.id %>"> 수 정 </a>
-	<a href="/posts/destroy/<%= post.id %>"> 삭 제 </a>
 	<!-- a태그를 통해 쿼리파라미터 방식으로 post.id 값이 해당되는 라우터로 넘어가감 -->
 	<hr>
 <% end %>
